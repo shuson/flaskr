@@ -11,7 +11,7 @@
   <script>
 	$(document).ready(function(){
 		var flag = true
-		$('#title').focusout(function(){
+		$('#title').change(function(){
 			var dt = "title="+$("#title").val();
 			$.ajax({
 				type:'POST',
@@ -19,10 +19,10 @@
 				data:dt,
 				success:function(resp){
 					if(resp == 'Y'){
-						$("#title").css('background','white');
+						flag = true
 					}
 					else{
-						$("#title").css('background','red');
+						$("#title").css({'background':'red','transition':'background-color 1s linear'});
 						flag = false;
 						return false
 					}

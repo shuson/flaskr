@@ -6,7 +6,26 @@
   <meta name="Author" content="">
   <meta name="Keywords" content="">
   <meta name="Description" content="">
-  <link rel='stylesheet' type='text/css' href="{{url_for('static',filename='stylesheet/style.css')}}">
+  <link rel='stylesheet' type='text/css' href="{{url_for('static',filename='stylesheet/style.css')}}" />
+  <link rel='stylesheet' type='text/css' href = "{{url_for('static',filename='stylesheet/bubble-popup.css')}}" />
+  <script src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+  <script src="{{url_for('static',filename='JS/bubble-popup.min.js')}}" ></script>
+  
+	<script>
+		$(function(){
+			$("#popup").CreateBubblePopup({
+				width:'100px',
+				position:'top',
+				align:'center',
+				innerHtml:'Click To Add New Entry!!'	
+			});
+			$("#popup").click(function(){	
+				window.location.href='/add';
+			});
+		})
+		
+	</script>
+
  </head>
 
  <body>
@@ -16,6 +35,6 @@
 		<li>{{entry.title}} ---- {{entry.text|safe}}&nbsp;&nbsp; <a href='/delete/{{entry.title}}'>Delete</a> &nbsp;| &nbsp;<a href="/edit/{{entry.title}}">Edit</a></li>
 		{% endfor %}
 	</ul>
-	<a href='/add'>Add</a>
+	<button id="popup" >Add</button>
   </body>
 </html>
