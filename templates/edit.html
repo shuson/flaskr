@@ -1,0 +1,21 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <title> New Document </title>
+  <meta name="Generator" content="EditPlus">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <link rel='stylesheet' type='text/css' href="{{url_for('static',filename='stylesheet/style.css')}}">
+ </head>
+
+ <body>
+  <form action="/edit_entry" method="post">
+	Title <input type='text' name='title' value='{{title}}' />
+	<br/>
+	Text <textarea name='text' >{{text}}</textarea>
+	<button type='submit'>submit</button>
+  </form>
+  <a href='/'>Back</a>
+ </body>
+</html>
